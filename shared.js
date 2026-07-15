@@ -88,7 +88,7 @@
   var footer =
     '<div class="wrap foot__grid">' +
       '<div class="foot__brand">' +
-        '<a href="index.html" class="brand"><img src="../../files/Assets/logo_white.png" alt="Hashnate" style="height: 40px; object-fit: contain;"></a>' +
+        '<a href="index.html" class="brand"><img src="assets/Screenshot_2026-07-13_135411-removebg-preview.png" alt="Hashnate" style="height: 40px; object-fit: contain;"></a>' +
         '<p>Full-stack software engineering, AI, and blockchain — engineered with purpose for businesses, institutions, and communities.</p>' +
         '<div class="foot__social">' +
           '<a href="https://www.linkedin.com/company/hashnate/" aria-label="LinkedIn"><i class="ti ti-brand-linkedin" aria-hidden="true"></i></a>' +
