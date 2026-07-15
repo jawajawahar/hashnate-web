@@ -401,6 +401,7 @@ a.cta__line:hover{color:var(--cyan-400)}
    RESPONSIVE
    ============================================================ */
 @media(max-width:1000px){
+  .nav__inner{display:flex;justify-content:space-between;width:100%}
   .nav__links,.nav__cta{display:none}
   .burger{display:flex}
   .cards--4{grid-template-columns:repeat(2,1fr)}
