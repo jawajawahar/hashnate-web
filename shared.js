@@ -114,7 +114,7 @@
     '</div>' +
     '<div class="wrap foot__base">' +
       '<span>© <span id="year"></span> Hashnate Software Engineering (Pvt) Ltd.</span>' +
-      '<span class="foot__legal"><a href="#">Terms</a><a href="#">Privacy</a></span>' +
+      '<span class="foot__legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a></span>' +
     '</div>';
 
   var fEl = document.getElementById("site-footer");
@@ -159,7 +159,7 @@
   var list = document.getElementById("rotator");
   if (list && !reduce) {
     var items = list.children.length, i = 0;
-    setInterval(function () { i = (i + 1) % items; list.style.transform = "translateY(-" + i * 1.08 + "em)"; }, 2200);
+    setInterval(function () { i = (i + 1) % items; list.style.transform = "translateY(-" + i * 1.2 + "em)"; }, 2200);
   }
 
   /* ---------- reveal on scroll ---------- */
@@ -258,4 +258,61 @@
       if (targetPanel) targetPanel.classList.add("active");
     });
   });
+
+  /* ---------- premium back to top button ---------- */
+  (function () {
+    var btn = document.createElement("button");
+    btn.className = "back-to-top";
+    btn.id = "back-to-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.setAttribute("hidden", "");
+    btn.innerHTML =
+      '<svg class="back-to-top__progress" width="48" height="48" viewBox="0 0 48 48">' +
+        '<circle class="back-to-top__circle-bg" cx="24" cy="24" r="18" fill="none" stroke-width="2.5"></circle>' +
+        '<circle class="back-to-top__circle-progress" cx="24" cy="24" r="18" fill="none" stroke-width="2.5" stroke-dasharray="113.1" stroke-dashoffset="113.1" transform="rotate(-90 24 24)"></circle>' +
+      '</svg>' +
+      '<i class="ti ti-chevron-up back-to-top__icon" aria-hidden="true"></i>';
+
+    document.body.appendChild(btn);
+
+    var circle = btn.querySelector(".back-to-top__circle-progress");
+    var limit = 200;
+    var isVisible = false;
+
+    function updateProgress() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      // Handle visibility
+      if (scrollTop > limit) {
+        if (!isVisible) {
+          btn.removeAttribute("hidden");
+          requestAnimationFrame(function () { btn.classList.add("visible"); });
+          isVisible = true;
+        }
+      } else {
+        if (isVisible) {
+          btn.classList.remove("visible");
+          setTimeout(function () {
+            if (!btn.classList.contains("visible")) btn.setAttribute("hidden", "");
+          }, 300);
+          isVisible = false;
+        }
+      }
+
+      // Calculate progress ring dash offset
+      if (docHeight > 0) {
+        var pct = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+        circle.style.strokeDashoffset = String(113.1 - (pct * 113.1));
+      }
+    }
+
+    btn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+  })();
 })();
+
