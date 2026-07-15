@@ -52,7 +52,7 @@
   var header =
     '<div class="wrap nav__inner">' +
       '<a href="index.html" class="brand" aria-label="Hashnate home">' +
-        '<img src="../../files/Assets/assets/hashnate-logo.webp" alt="Hashnate" style="height: 40px; object-fit: contain;"></a>' +
+        '<img src="assets/hashnate-logo.webp" alt="Hashnate" style="height: 40px; object-fit: contain;"></a>' +
       '<nav class="nav__links" aria-label="Primary">' +
         link("index.html", "Home", "home") +
         '<div class="nav__item">' + trigger("Solutions", page === "solutions") +
