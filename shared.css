@@ -2339,7 +2339,9 @@ a.cta__line:hover {
   box-shadow: var(--shadow-sm);
   transition: transform .28s, box-shadow .28s, border-color .28s;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .member::before {
@@ -2418,7 +2420,8 @@ a.cta__line:hover {
 .member__soc {
   display: inline-flex;
   gap: 8px;
-  margin-top: 15px
+  margin-top: auto;
+  padding-top: 15px
 }
 
 .member__soc a {
@@ -2565,7 +2568,9 @@ a.cta__line:hover {
   box-shadow: var(--shadow-sm);
   transition: transform .28s, box-shadow .28s, border-color .28s;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .member::before {
@@ -2638,7 +2643,8 @@ a.cta__line:hover {
   display: flex;
   gap: 8px;
   justify-content: center;
-  margin-top: 16px
+  margin-top: auto;
+  padding-top: 16px
 }
 
 .member__social a {
